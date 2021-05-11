@@ -10,7 +10,7 @@ describe('routes - movie',function(){
     });
     const request = testServer(route);
     describe('GET/movies',function () {
-        it('should responde qith status 200',function (done) {
+        it('should responde with status 200',function (done) {
             request.get('/api/movies').expect(200,done);
         });
         it('should respond with the list of movies',function (done) {
@@ -21,6 +21,9 @@ describe('routes - movie',function(){
                 });
                 done();
             });
+        });
+        it('should respond with status 201', function (done) {
+            request.post('/api/movies').expect(201,done);
         });
     });
 });

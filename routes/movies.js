@@ -9,7 +9,6 @@ function moviesApi (app){
     const router =express.Router();
     app.use('/api/movies',router);
     const moviesService = new MoviesService;
-
     router.get('/',async function(req,res,next){
         cacheResponse(res,FIVE_MINUTES_IN_SECONDS);
         const {tags} = req.query;
@@ -40,9 +39,9 @@ function moviesApi (app){
         //const {movieId}=req.params;
         const {body:movie}=req;
         try{
-            const cretedMovieid = await moviesService.createMovie({movie})
+            const cretedMovieId = await moviesService.createMovie({movie})
             res.status(201).json({
-                data:cretedMovieid,
+                data:cretedMovieId,
                 message:'movies created'
             });
         }catch(err){
